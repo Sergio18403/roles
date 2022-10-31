@@ -34,15 +34,13 @@
         font-weight: bold;
     }
 	body{
-      background-color: #EEEEEE;
-      
-      font-size: 200%;
-    }
-	.img_de_fondo{
 		background-image: url("img/oficina.jpg");
 		background-repeat: no-repeat;
 		background-size: cover;
-
+      font-size: 200%;
+    }
+	.img_de_fondo{
+		
 	}
 </style>
 </head>

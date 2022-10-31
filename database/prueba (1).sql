@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-03-2020 a las 00:09:19
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.0
+-- Tiempo de generación: 31-10-2022 a las 16:02:41
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,10 +18,31 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `php_multilogin`
+-- Base de datos: `prueba`
 --
-CREATE DATABASE IF NOT EXISTS `php_multilogin` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `php_multilogin`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `alumnos`
+--
+
+CREATE TABLE `alumnos` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `edad` int(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `alumnos`
+--
+
+INSERT INTO `alumnos` (`id`, `nombre`, `apellido`, `email`, `edad`) VALUES
+(4, 'luis', 'ortega', 'luisortega@gmail.com', 1999),
+(5, 'luis', 'alvarado', 'alvaradosanchez671@gmail.com', 19),
+(47, 'sergio', 'acosta', 'ser@gmail.com', 18);
 
 -- --------------------------------------------------------
 
@@ -43,12 +63,19 @@ CREATE TABLE `mainlogin` (
 --
 
 INSERT INTO `mainlogin` (`id`, `username`, `email`, `password`, `role`) VALUES
-(11, 'admin', 'demo@baulphp.com', '123456', 'admin'),
-(12, 'test', 'test@baulphp.com', '123456', 'personal');
+(5, 'duvan', 'sergio@gmail.com', '123456', 'admin'),
+(26, 'sergio', 'personal@gmail.com', '123456', 'personal'),
+(28, 'sergio daniel', 'usuario@gmail.com', '123456', 'usuarios');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `alumnos`
+--
+ALTER TABLE `alumnos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `mainlogin`
@@ -61,28 +88,17 @@ ALTER TABLE `mainlogin`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `alumnos`
+--
+ALTER TABLE `alumnos`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
 -- AUTO_INCREMENT de la tabla `mainlogin`
 --
 ALTER TABLE `mainlogin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
-
-CREATE TABLE alumnos (
-  id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR(30) NOT NULL,
-  apellido VARCHAR(30) NOT NULL,
-  email VARCHAR(50) NOT NULL,
-  edad INT(3),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-/*INSERT INTO `clientes` (`id`, `nombre`, `email`, `pais`, `password`) VALUES
-(1, 'Miguel Flores', 'miguel@baulphp.com', 'Mexico', '8d777f385d3dfec8815d20f7496026dc'),
-(2, 'Maria Caceres', 'maria@baulphp.com', 'Brasil', 'c941d09fd43dea6f08060805e0d5f47b'),
-(4, 'Daniel Quintana', 'daniel@baulphp.com', 'Ecuador', ''),
-(5, 'Yanet Castillo', 'yanet@baulphp.com', 'Canada', '');
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
