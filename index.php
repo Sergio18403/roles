@@ -34,7 +34,7 @@
         font-weight: bold;
     }
 	body{
-		background-image: url("img/oficina.jpg");
+		background-image: url("img/Oficina.jpg");
 		background-repeat: no-repeat;
 		background-size: cover;
       font-size: 200%;
